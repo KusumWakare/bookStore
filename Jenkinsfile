@@ -42,8 +42,8 @@ pipeline {
         stage('Building & Tag Docker Image') {
              steps {
                 echo 'Starting Building Docker Image'
-                sh 'docker build -t kusumwakare/bookStore-ms .'
-                sh 'docker build -t bookStore-ms .'
+                sh 'docker build -t kusumwakare/bookstore-ms .'
+                sh 'docker build -t bookstore-ms .'
                 echo 'Completed  Building Docker Image'
              }
         }

@@ -39,14 +39,14 @@ pipeline {
 				echo 'code packing is completed'
             }
         }
-        /*stage('Building & Tag Docker Image') {
-            steps {
+        stage('Building & Tag Docker Image') {
+             steps {
                 echo 'Starting Building Docker Image'
-                sh 'docker build -t satyam88/travelbooking-ms .'
-                sh 'docker build -t travelbooking-ms .'
+                sh 'docker build -t kusumwakare/bookStore-ms .'
+                sh 'docker build -t bookStore-ms .'
                 echo 'Completed  Building Docker Image'
-            }
-        }*/
+             }
+        }
         stage('Docker Image Scanning') {
             steps {
                 echo 'Docker Image Scanning Started'

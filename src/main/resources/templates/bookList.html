@@ -11,7 +11,7 @@
     <title>List of books</title>
 </head>
 <body>
-  <h1>Display Book list</h1>
+  <h1>Available Books</h1>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid">
@@ -55,8 +55,8 @@
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
             <td><a class="btn btn-secondary btn-sm" th:href="@{/myList/{id}{id=${b.id}}}">Add to Mybook</a>&nbsp;&nbsp;
-                <a style="color:red" th:href="@{/editBook/{id}{id=${b.id}}}"><i class="fa-sharp fa-solid fa-pen-to-square"></i></a>&nbsp;&nbsp;
-                <a style="color:red" th:href="@{/deleteBook/{id}{id=${b.id}}}"><i class="fa-solid fa-trash ms-4"></i></a>
+                <a style="color:blue" th:href="@{/editBook/{id}{id=${b.id}}}"><i class="fa-sharp fa-solid fa-pen-to-square">edit</i></a>&nbsp;&nbsp;
+                <a style="color:red" th:href="@{/deleteBook/{id}{id=${b.id}}}"><i class="fa-solid fa-trash ms-4">delete</i></a>
             </td>
         </tr>
       </tbody>

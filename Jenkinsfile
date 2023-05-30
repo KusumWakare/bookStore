@@ -75,7 +75,7 @@ pipeline {
                    echo "List the docker images present in local"
                    docker images
                    echo "Tagging the Docker Image: In Progress"
-                   docker tag bookstore:latest 701158536369.dkr.ecr.ap-south-1.amazonaws.com/bookstore-ms:latest
+                   docker tag bookstore-ms:latest 701158536369.dkr.ecr.ap-south-1.amazonaws.com/bookstore-ms:latest
                    echo "Tagging the Docker Image: Completed"
                    echo "Push Docker Image to ECR : In Progress"
                    docker push 701158536369.dkr.ecr.ap-south-1.amazonaws.com/bookstore-ms:latest

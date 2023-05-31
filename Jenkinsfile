@@ -18,7 +18,7 @@ pipeline {
 				echo 'code compilation is completed'
             }
         }
-        /*stage('Sonarqube Code Quality Check') {
+        stage('Sonarqube Code Quality Check') {
             environment {
                 scannerHome = tool 'qube'
             }
@@ -31,7 +31,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }*/
+        }
         stage('Code Package') {
             steps {
                 echo 'code packing is starting'

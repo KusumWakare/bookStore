@@ -18,7 +18,7 @@ pipeline {
 				echo 'code compilation is completed'
             }
         }
-        /*stage('Sonarqube Code Quality') {
+        /*stage('Sonarqube Code Quality Check') {
             environment {
                 scannerHome = tool 'qube'
             }
@@ -85,18 +85,17 @@ pipeline {
                }
             }
         }
-        /*stage('Upload the docker Image to Nexus') {
-           steps {
-              script {
-                 withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                 sh 'docker login http://43.204.229.125:8085/repository/travelbooking-ms/ -u admin -p ${PASSWORD}'
-                 echo "Push Docker Image to Nexus : In Progress"
-                 sh 'docker tag travelbooking-ms 43.204.229.125:8085/travelbooking-ms:latest'
-                 sh 'docker push 43.204.229.125:8085/travelbooking-ms'
-                 echo "Push Docker Image to Nexus : Completed"
-                 }
-              }
+        stage('Upload Docker Images to Nexus') {
+            steps {
+                script {
+                    withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
+                    sh 'docker login http://13.127.232.185:8085/repository/bookstore-ms-repo/ -u admin -p $(PASSWORD)'
+                    echo "Push Docker Image to Nexus : In Progress"
+                    sh 'docker tag bookstore-ms 13.127.232.185:8085/bookstore-ms:latest'
+                    sh 'docker push 13.127.232.185:8085/bookstore-ms'
+                    echo "Push Docker Image to Nexus : Completed"                              }
+                }
             }
-        }*/
+        }
     }
 }

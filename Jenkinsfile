@@ -98,7 +98,7 @@ pipeline {
             }
         }*/
 
-        stage('Removing images from jenkins') {
+        /*stage('Removing images from jenkins') {
               steps {
                  // Remove the Docker image from Jenkins
                  //sh 'docker images prune -a'
@@ -106,6 +106,21 @@ pipeline {
                  //docker rm $(docker ps -a -f status=created -q)
                  docker rmi $(docker images -a)
               }
-        }
+        }*/
+
+        stage('Remove Containers') {
+                    steps {
+                        // Stop and remove all running containers
+                        sh 'docker stop $(docker ps -aq)'
+                        sh 'docker rm $(docker ps -aq)'
+                    }
+                }
+
+                stage('Remove Images') {
+                    steps {
+                        // Remove all Docker images
+                        sh 'docker rmi $(docker images -aq)'
+                    }
+                }
     }
 }

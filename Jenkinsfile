@@ -106,7 +106,7 @@ pipeline {
                  //docker rm $(docker ps -a -f status=created -q)
                  docker rmi $(docker images -a)
               }
-        }*/
+        }
 
         stage('Remove Containers') {
                     steps {
@@ -114,12 +114,14 @@ pipeline {
                         sh 'docker stop $(docker ps -aq)'
                         sh 'docker rm $(docker ps -aq)'
                     }
-                }
+                }*/
 
                 stage('Remove Images') {
                     steps {
                         // Remove all Docker images
-                        sh 'docker rmi $(docker images -aq)'
+                        //sh 'docker rmi $(docker images -aq)'
+                        sh 'docker rmi 701158536369.dkr.ecr.ap-south-1.amazonaws.com/bookstore-ms:latest'
+                        sh 'docker rmi kusumwakare/bookstore-ms:latest'
                     }
                 }
     }

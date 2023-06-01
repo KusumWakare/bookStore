@@ -89,13 +89,20 @@ pipeline {
             steps {
                 script {
                     withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
-                    sh 'docker login http://13.127.232.185:8085/repository/bookstore-ms-repo/ -u admin -p $(PASSWORD)'
+                    sh 'docker login http://13.232.214.20:8085/repository/bookstore-ms-repo/ -u admin -p $(PASSWORD)'
                     echo "Push Docker Image to Nexus : In Progress"
-                    sh 'docker tag bookstore-ms 13.127.232.185:8085/bookstore-ms:latest'
-                    sh 'docker push 13.127.232.185:8085/bookstore-ms'
+                    sh 'docker tag bookstore-ms 13.232.214.20:8085/bookstore-ms:latest'
+                    sh 'docker push 13.232.214.20:8085/bookstore-ms'
                     echo "Push Docker Image to Nexus : Completed"                              }
                 }
             }
         }
+
+        /*stage('Cleanup') {
+              steps {
+                 // Remove the Docker image from Jenkins
+                 sh 'docker images prune -a'
+              }
+        }*/
     }
 }

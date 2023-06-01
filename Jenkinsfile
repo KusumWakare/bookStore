@@ -85,7 +85,7 @@ pipeline {
                }
             }
         }
-        stage('Upload Docker Images to Nexus') {
+        /*stage('Upload Docker Images to Nexus') {
             steps {
                 script {
                     withCredentials{[usernamePassword(credentialsId: 'nexus-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]} {
@@ -96,13 +96,13 @@ pipeline {
                     echo "Push Docker Image to Nexus : Completed"                              }
                 }
             }
-        }
+        }*/
 
-        /*stage('Cleanup') {
+        stage('Cleanup') {
               steps {
                  // Remove the Docker image from Jenkins
                  sh 'docker images prune -a'
               }
-        }*/
+        }
     }
 }

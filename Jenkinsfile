@@ -122,7 +122,7 @@ pipeline {
                         //sh 'docker rmi $(docker images -aq)'
                         //sh 'docker rmi 701158536369.dkr.ecr.ap-south-1.amazonaws.com/bookstore-ms:latest'
                         //sh 'docker rmi kusumwakare/bookstore-ms:latest'
-                        sh 'docker system prune -a -y'
+                        sh 'docker system prune -a -f'
                     }
                 }
     }

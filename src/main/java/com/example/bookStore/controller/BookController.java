@@ -72,5 +72,4 @@ public class BookController {
         service.save(b);
         return "redirect:/available_books";
     }
-
 }
